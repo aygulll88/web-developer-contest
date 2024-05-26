@@ -1,0 +1,10 @@
+z=0
+a=7
+
+while a!=(''):
+    a=input()
+    if a==(''):
+        break
+    if int(a) % 2==0:
+        z+=int(a)
+print(z)
