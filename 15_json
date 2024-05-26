@@ -1,0 +1,16 @@
+def mean_age(json_string):
+    import json
+    list_=[]
+    sum=0
+    n=0
+    age=float(0)
+    list_=json.loads(json_string)
+    for i in range(len(list_)):
+        for key, value in list_[i].items():
+            if key=='age':
+                sum+=value
+                n+=1
+        age=sum/n
+    age_=json.dumps({"mean_age":age})
+    
+    return age_
