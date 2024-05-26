@@ -1,0 +1,38 @@
+def get_balance(name, transactions):
+    nam=[]
+    na=[]
+    for i in range(len(transactions)):
+        for elem in transactions[i].values():
+            nam.append(elem)
+
+    for i in range(len(nam)-1):
+        for j in range(i+1,len(nam)-1):
+            if nam[i]==nam[j] and i%2==0 and j%2==0:
+                nam[i+1]+=nam[j+1]
+                nam[j]=nam[j+1]=0
+
+    for i in range(len(nam)):
+        if nam[i]!=0:
+            na.append(nam[i])
+
+    for i in range(len(na)):
+        if na[i]==name:
+            z=na[i+1]
+        if name not in na:
+            z=0
+
+    return z
+
+
+def count_debts(names, amount, transactions):
+    slov={}
+    slov_={}
+    for el in names:
+        slov[el]=slov.get(el,0)
+    for key, value in slov.items():
+        if get_balance(key, transactions)<amount:
+            value=amount-get_balance(key, transactions)
+        slov[key]=value
+       
+
+    return slov
