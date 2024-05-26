@@ -1,0 +1,31 @@
+def  get_popular_name_from_file(filename):
+    string_=''
+    list1=[]
+    list2=[]
+    list_=[]
+    slov={}
+    st=''
+    f=open(filename, 'r', encoding='UTF-8')
+    for line in f:
+        string_+=line+' '
+    f.close()
+    list_=string_.split(' ')
+    list_=list_[::2]
+    list_=list_[0:len(list_)-1]       
+    for el in list_:
+        slov[el]=slov.get(el, 0)+1     
+    for elem in slov.keys():
+        list1.append(elem)
+    for elem in slov.values():
+        list2.append(elem)
+    maxi=max(list2)
+    maxi_index=list2.index(maxi)
+    st+=str(list1[maxi_index])+', '
+    del list2[maxi_index]
+    del list1[maxi_index]
+    for i_item, i_value in enumerate(list2):
+        if i_value==maxi:
+            st+=str(list1[i_item])+', '
+            del list2[i_item]
+    st=st[:-2]
+    return st
