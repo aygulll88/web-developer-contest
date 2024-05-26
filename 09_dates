@@ -1,0 +1,14 @@
+import datetime
+
+date_str = input()
+date = datetime.datetime.strptime(date_str, '%d-%m-%Y')
+weekday = date.weekday()
+
+# Calculate the start of the week (Monday)
+start_of_week = date - datetime.timedelta(days=weekday)
+
+# Format the start of the week as a string in the desired format
+start_of_week_str = start_of_week.strftime("%d-%m-%Y")
+
+# Print the start of the week
+print(start_of_week_str)
