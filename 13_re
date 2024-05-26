@@ -1,0 +1,12 @@
+def check_string(string):
+    import re
+    result1=''
+    if re.match(r'\+{1}', string) or re.match(r'\({1}', string) or re.match(r'[789]{1}', string): 
+       result1=re.sub(r'(\D)','',string) 
+    pattern1=re.compile(r'[78][0-9]{10}$')
+    pattern2=re.compile(r'[9][0-9]{9}$')
+    pattern3=re.compile(r'^((([0-9A-Z]{1}[-0-9A-Z\.]{1,}[0-9A-Za-z]{1}))@([-A-Za-z]{1,}\.){1,}[-A-Za-z]{2,})$',flags=re.IGNORECASE)
+    if pattern1.match(result1) or pattern2.match(result1) or pattern3.match(string):
+        return True
+    else:
+        return False
