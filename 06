@@ -1,0 +1,15 @@
+list=[]
+a=[]
+i=0
+while a!=(''):
+    a=input()
+    if a==(''):
+        break
+    else: 
+        list.append(int(a))
+        i+=1
+    if i>4:
+        break
+list=sorted(list, reverse=True)
+for i,item in enumerate(list):
+    print(item)
