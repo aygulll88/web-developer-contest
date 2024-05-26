@@ -1,0 +1,16 @@
+def lists_sum (*args, unique=False):
+    list=[]
+    a={}
+    s=0
+    if unique==False:
+        list+=args
+        list=sum(list,[])
+        s=sum(list)
+    elif unique==True:
+        list+=args
+        list=sum(list,[])
+        for el in list:
+            a[el]=a.get(el,0)+1
+        for elem in a.keys():
+            s+=elem
+    return s
