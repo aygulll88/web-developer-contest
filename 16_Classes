@@ -1,0 +1,43 @@
+class Calculator(object):
+    
+    last=None
+    
+    def __init__(self):
+        self.histor=[]
+
+            
+    def sum(self, a, b):
+        sum_=a+b
+        Calculator.last=(f"sum({a}, {b}) == {round(sum_,1)}")
+        self.histor.append(Calculator.last)
+        return round(sum_,1)
+    
+    def sub(self,a,b):
+        sub_=a-b
+        Calculator.last=(f"sub({a}, {b}) == {round(sub_,1)}")
+        self.histor.append(Calculator.last)
+        return round(sub_,1)
+    
+    def mul(self,a,b):
+        mul_=a*b
+        Calculator.last=(f"mul({a}, {b}) == {round(mul_,1)}")
+        self.histor.append(Calculator.last)
+        return round(mul_,1)
+    
+    def div(self,a,b,mod=False):
+        if mod==False:
+            mod_=a/b
+        else:
+            mod_=a%b
+        Calculator.last=(f"div({a}, {b}) == {mod_}")
+        self.histor.append(Calculator.last)
+        return round(mod_, 2)
+    
+    def history(self, n):
+        if n<=(len(self.histor)) and n!=0 and len(self.histor)!=0:
+            return self.histor[-n]
+        else: return None
+       
+    @classmethod
+    def clear(cls):
+        cls.last=None
