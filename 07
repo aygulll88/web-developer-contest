@@ -1,0 +1,6 @@
+string1=[]
+string=sorted(input().lower().split(', '))
+for elem in string:
+    if elem not in string1:
+        string1.append(elem)
+print(', '.join(string1))
