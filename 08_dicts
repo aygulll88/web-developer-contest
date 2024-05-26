@@ -1,0 +1,15 @@
+from collections import Counter
+
+# Input the words
+words = input().split(", ")
+
+# Get the count of each word
+word_count = Counter(words)
+
+# Sort the words by frequency and get the top 3
+top_3 = word_count.most_common(3)
+
+# Print the top 3 words and their frequency
+for word, frequency in top_3:
+    print(f"{word}: {frequency}")
+    
