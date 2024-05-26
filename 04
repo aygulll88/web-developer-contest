@@ -1,0 +1,7 @@
+text = input().split()
+sub_str = input()
+
+low_sub_str = sub_str.lower()
+for word in text:
+    if low_sub_str in word.lower():
+        print(word)
