@@ -1,0 +1,17 @@
+def gift_count(budget, month, birthdays):
+    list=[]
+    str_=''
+    str1=''
+    i=1
+    for elem in birthdays.items():
+        if elem[1].month==month:
+            list.append(elem)
+    if list==[]:
+        print('В этом месяце нет именинников.')   
+        return
+    summa=budget//len(list)
+    list=sorted(list, key=lambda x: x[1].day) 
+    for name, data in list:
+        str_+=(f"{name} ({data.day:02}.{data.month:02}.{data.year:02}), ")
+        str1=str_[0:-2]
+    print(F"Именинники в месяце {month}: {str1}. При бюджете {budget} они получат по {summa} рублей.")
